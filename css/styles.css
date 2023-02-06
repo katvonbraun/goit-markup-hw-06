@@ -49,6 +49,19 @@ body {
   list-style: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .btn {
   border: none;
 }
@@ -887,16 +900,6 @@ padding-bottom: 120px;
   margin-bottom: 4px;
 }
 
-.check-text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.33;
-  letter-spacing: 0.04em;
-
-  color: #757575;
-}
-
 .modal-btn {
   display: block;
   width: 169px;
@@ -912,4 +915,38 @@ padding-bottom: 120px;
 .modal-btn:hover,
 .modal-btn:focus {
   background-color: #404bbf;
+}
+
+.check-text {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+
+  color: #757575;
+}
+
+.check-text::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 1.25px solid #2e2f42;
+  border-radius: 2px;
+  display: block;
+  cursor: pointer;
+
+  margin-right: 8px;
+}
+
+.input-check:checked + .check-text::before {
+  background-color: #404bbf;
+  border: none;
+  background-image: url(../images/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
